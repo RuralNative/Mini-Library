@@ -1,0 +1,12 @@
+.add-book-modal {
+    background-color: white;        /* White background */
+    border-radius: 15px;           /* Rounded borders */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    display: flex;                  /* Flexbox layout */
+    flex-direction: column;         /* Column direction */
+    justify-content: center;        /* Center content vertically */
+    align-items: center;            /* Center content horizontally */
+    column-gap: 10px;               /* Gap between columns (if any) */
+    padding: 20px;                  /* Padding inside the section */
+    width: 300px;                   /* Fixed width for the section */
+}
