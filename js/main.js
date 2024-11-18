@@ -1,6 +1,9 @@
 // Array to store all Book objects
 const library_storage = [
-
+    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"},
+    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"},
+    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"},
+    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}
 ];
 
 function Book(title, author, pages, read_status) {
@@ -16,6 +19,7 @@ function addBook() {
     // Store new Book object in library_storage
 }
 
+// Initialize Cards from Book[] objects
 function initializeBooks() {
     const bookGallery = document.querySelector("#book-section");
     bookGallery.innerHTML = '';
@@ -23,12 +27,6 @@ function initializeBooks() {
         const bookCard = document.createElement('div');
         bookCard.className = 'book-card';
         bookCard.innerHTML = `
-            <h3>${book.title}</h3>
-            <p><strong>Author:</strong> </p>
-            <p><strong>Pages:</strong> </p>
-            <p><strong>Read Status:</strong> </p>
-
-            <h1>RuralBook</h1>
             <p>
                 <strong>Title: </strong> 
                 <span>${book.title}</span>
