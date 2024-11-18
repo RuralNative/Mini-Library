@@ -3,10 +3,10 @@ const library_storage = [
 
 ];
 
-function Book(title, author, number_of_pages, read_status) {
+function Book(title, author, pages, read_status) {
     this.title = title;
     this.author = author;
-    this.number_of_pages = number_of_pages;
+    this.pages = pages;
     this.read_status = read_status;
 }
 
@@ -16,9 +16,38 @@ function addBook() {
     // Store new Book object in library_storage
 }
 
-//Create function
-    // Clear existing content
-    // Loop through each book in the array
-    // Create article section and attach CSS class name for styling
-    // Add content
-    // Append card
+function initializeBooks() {
+    const bookGallery = document.querySelector("#book-section");
+    bookGallery.innerHTML = '';
+    library_storage.forEach(book => {
+        const bookCard = document.createElement('div');
+        bookCard.className = 'book-card';
+        bookCard.innerHTML = `
+            <h3>${book.title}</h3>
+            <p><strong>Author:</strong> </p>
+            <p><strong>Pages:</strong> </p>
+            <p><strong>Read Status:</strong> </p>
+
+            <h1>RuralBook</h1>
+            <p>
+                <strong>Title: </strong> 
+                <span>${book.title}</span>
+            </p>
+            <p>
+                <strong>Author: </strong> 
+                <span>${book.author}</span>
+            </p>
+            <p>
+                <strong>Pages: </strong> 
+                <span>${book.pages}</span>
+            </p>
+            <p>
+                <strong>Has Read?: </strong> 
+                <span>${book.readStatus}</span>
+            </p>
+        `;
+        bookGallery.appendChild(bookCard);
+    });
+}
+
+initializeBooks();
