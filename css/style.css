@@ -8,5 +8,34 @@
     align-items: center;            /* Center content horizontally */
     column-gap: 10px;               /* Gap between columns (if any) */
     padding: 20px;                  /* Padding inside the section */
-    width: 300px;                   /* Fixed width for the section */
+    width: 500px;                   /* Fixed width for the section */
+    margin: auto;
+    z-index: 1;
+}
+
+.add-book-modal p {
+    display: flex;
+    row-gap: 50px;
+    align-items: center ;
+}
+
+.add-book-modal label {
+    flex: 1; /* Allow label to take available space */
+    margin-right: 10px; /* Space between label and input */
+}
+
+.add-book-modal input {
+    flex: 2; /* Allow input to take more space than label */
+    padding: 8px; /* Add padding for better appearance */
+    border-radius: 4px; /* Rounded corners */
+    border: 1px solid #ccc; /* Border styling */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.add-book-modal button {
+    flex: 3; /* Allow input to take more space than label */
+    padding: 8px; /* Add padding for better appearance */
+    border-radius: 4px; /* Rounded corners */
+    border: 1px solid #ccc; /* Border styling */
+    box-sizing: border-box; /* Include padding and border in width */
 }
