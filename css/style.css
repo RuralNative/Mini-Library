@@ -1,3 +1,28 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    z-index: 1; /* Lower than modal */
+}
+
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Higher than overlay */
+}
+
 .add-book-modal {
     background-color: white;        /* White background */
     border-radius: 15px;           /* Rounded borders */
@@ -9,8 +34,10 @@
     column-gap: 10px;               /* Gap between columns (if any) */
     padding: 20px;                  /* Padding inside the section */
     width: 500px;                   /* Fixed width for the section */
-    margin: auto;
-    z-index: 1;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .add-book-modal p {
@@ -20,7 +47,7 @@
 }
 
 .add-book-modal label {
-    flex: 1; /* Allow label to take available space */
+    flex: 2; /* Allow label to take available space */
     margin-right: 10px; /* Space between label and input */
 }
 
