@@ -1,3 +1,33 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.book-card {
+    background-color: white;        /* White background */
+    border-radius: 15px;           /* Rounded borders */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    display: flex;                  /* Flexbox layout */
+    flex-direction: column;         /* Column direction */
+    justify-content: center;        /* Center content vertically */
+    align-items: center;            /* Center content horizontally */
+    column-gap: 10px;               /* Gap between columns (if any) */
+    padding: 20px;                  /* Padding inside the section */
+    width: 15em;                   /* Fixed width for the section */
+}
+
+.book-card strong {
+    font-weight: bold;
+    flex: 2; /* Allow label to take available space */
+    margin-right: 12px; /* Space between label and input */
+}
+
+.book-card em {
+    color: rgb(117, 115, 115);
+    flex: 2; /* Allow input to take more space than label */
+    padding: 8px; /* Add padding for better appearance */   
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
 .modal-overlay {
     visibility: hidden;
     position: fixed;
@@ -45,16 +75,18 @@
 
 .add-book-modal p {
     display: flex;
-    row-gap: 50px;
+    row-gap: 2em;
     align-items: center ;
 }
 
 .add-book-modal label {
+    font-weight: bold;
     flex: 2; /* Allow label to take available space */
     margin-right: 10px; /* Space between label and input */
 }
 
 .add-book-modal input {
+    color: rgb(117, 115, 115);
     flex: 2; /* Allow input to take more space than label */
     padding: 8px; /* Add padding for better appearance */
     border-radius: 4px; /* Rounded corners */
@@ -63,6 +95,7 @@
 }
 
 .add-book-modal button {
+    font-weight: bold;
     flex: 3; /* Allow input to take more space than label */
     padding: 8px; /* Add padding for better appearance */
     border-radius: 4px; /* Rounded corners */
