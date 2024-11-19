@@ -6,6 +6,10 @@ const library_storage = [
     {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}
 ];
 
+// Global Components
+const bookGallery = document.querySelector("#book-section");
+const addBookButton = document.querySelector("#show-form-button");
+
 function Book(title, author, pages, read_status) {
     this.title = title;
     this.author = author;
@@ -21,7 +25,6 @@ function addBook() {
 
 // Initialize Cards from Book[] objects
 function initializeBooks() {
-    const bookGallery = document.querySelector("#book-section");
     bookGallery.innerHTML = '';
     library_storage.forEach(book => {
         const bookCard = document.createElement('div');
