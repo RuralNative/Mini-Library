@@ -6,34 +6,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.book-card {
-    display: flex;
-    flex-direction: column;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    height: auto;        
-    margin: 1em;
-    padding: 1em;                  
-    width: 15em;                   
-    background-color: white;
-}
-
-.book-card p {
-    display: flex;
-    align-items: center ;
-    margin: 0.5em;
-}
-
-.book-card strong {
-    flex: 1;
-    font-weight: bold;
-}
-
-.book-card span {
-    flex: 2;
-    color: rgb(117, 115, 115);
-}
-
 .modal-overlay {
     position: fixed;
     visibility: hidden;
@@ -101,3 +73,39 @@ body {
     padding: 8px;
     font-weight: bold;
 }
+
+#book-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    height: auto;        
+    margin: 1em;
+    padding: 1em;                  
+    width: 15em;                   
+    background-color: white;
+}
+
+.book-card p {
+    display: flex;
+    align-items: center ;
+    margin: 0.5em;
+}
+
+.book-card strong {
+    flex: 1;
+    font-weight: bold;
+}
+
+.book-card span {
+    flex: 2;
+    color: rgb(117, 115, 115);
+}
+
