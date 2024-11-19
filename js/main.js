@@ -9,19 +9,20 @@ const library_storage = [
 // Global Components
 const bookGallery = document.querySelector("#book-section");
 const addBookButton = document.querySelector("#show-form-button");
+const addBookDialog = document.querySelector(".add-book-modal");
 
 function Book(title, author, pages, read_status) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read_status = read_status;
-}
+};
 
 function addBook() {
     // Fetch info from HTML Form
     // Use info for Book() arguments and create a Book() object
     // Store new Book object in library_storage
-}
+};
 
 // Initialize Cards from Book[] objects
 function initializeBooks() {
@@ -49,6 +50,11 @@ function initializeBooks() {
         `;
         bookGallery.appendChild(bookCard);
     });
-}
+};
 
 initializeBooks();
+
+// "Show the dialog" button opens the dialog modally
+addBookButton.addEventListener("click", () => {
+    addBookDialog.showModal();
+});
