@@ -32,7 +32,7 @@ body {
 .add-book-modal {
     display: flex;   
     column-gap: 10px;        
-    visibility: hidden;
+    visibility: visible;
     align-items: center;           
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

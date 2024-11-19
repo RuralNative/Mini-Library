@@ -16,7 +16,15 @@
         <!-- Add Book Modal with Form -->
          <div class="modal-overlay"></div>
          <section class="modal-wrapper">
-            <section class="add-book-modal">
+            <section >
+                <!-- Migrated to Modal HTML Component (TEST before Integration)-->
+            </section>
+         </section>
+        
+        <!-- Main Website Sections -->
+        <section class="main-section" id="form-section">
+            <button id="show-form-button">Add Book</button>
+            <dialog class="add-book-modal" open>
                 <form action="" method="post">
                     <h3>Add Book</h3>
                     <p>
@@ -25,7 +33,7 @@
                     </p>
                     <p>
                         <label for="author">Author: </label>
-                        <input type="text" id="author" name="book-author" value="Jose Rizal">
+                        <input type="text" id="author" name="book-author" value="Jose Rizal" autofocus>
                     </p>
                     <p>
                         <label for="pages">Pages: </label>
@@ -39,12 +47,7 @@
                         <button type="submit">Submit</button>
                     </p>
                 </form>
-             </section>
-         </section>
-        
-        <!-- Main Website Sections -->
-        <section class="main-section" id="form-section">
-            <button id="show-form-button">Add Book</button>
+            </dialog>
         </section>
         <section class="main-section" id="book-section">
             <div class="book-card">
