@@ -3,76 +3,69 @@ body {
 }
 
 .book-card {
-    background-color: white;        /* White background */
-    border-radius: 15px;           /* Rounded borders */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    display: flex;                  /* Flexbox layout */
-    justify-content: space-between;
-    flex-direction: column;         /* Column direction */
-    padding: 20px;                  /* Padding inside the section */
-    width: 15em;                   /* Fixed width for the section */
+    display: flex;          
+    flex-direction: column;         
+    border-radius: 15px;           
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    height: auto;        
+    margin: 1em;
+    padding: 1em;                  
+    width: 15em;                   
+    background-color: white;
 }
 
 .book-card p {
     display: flex;
-    row-gap: 2em;
     align-items: center ;
+    margin: 0.5em;
 }
 
 .book-card strong {
+    flex: 1;
     font-weight: bold;
-    flex: 1; /* Allow label to take available space */
 }
 
 .book-card span {
+    flex: 2;
     color: rgb(117, 115, 115);
-    flex: 2; /* Allow input to take more space than label */
-    padding: 8px; /* Add padding for better appearance */   
 }
 
 .modal-overlay {
-    visibility: hidden;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    visibility: hidden;
+    z-index: 1;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    backdrop-filter: blur(5px); /* Apply blur effect */
-    z-index: 1; /* Lower than modal */
+    margin: 0px;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-wrapper {
-    visibility: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     display: flex;
-    justify-content: center;
+    position: fixed;
+    visibility: hidden;
+    z-index: 2;
     align-items: center;
-    width: 100%;
     height: 100%;
-    z-index: 2; /* Higher than overlay */
+    justify-content: center;
+    margin: 0;
+    width: 100%;
 }
 
 .add-book-modal {
+    display: flex;   
+    column-gap: 10px;        
     visibility: hidden;
-    background-color: white;        /* White background */
-    border-radius: 15px;           /* Rounded borders */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    display: flex;                  /* Flexbox layout */
-    flex-direction: column;         /* Column direction */
-    justify-content: center;        /* Center content vertically */
-    align-items: center;            /* Center content horizontally */
-    column-gap: 10px;               /* Gap between columns (if any) */
-    padding: 20px;                  /* Padding inside the section */
-    width: 500px;                   /* Fixed width for the section */
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;           
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex-direction: column;     
+    justify-content: center; 
+    margin: auto;         
+    padding: 20px;                
+    width: 500px;       
+    background-color: white;
 }
 
 .add-book-modal p {
@@ -82,25 +75,25 @@ body {
 }
 
 .add-book-modal label {
+    flex: 2;
+    margin-right: 10px;
     font-weight: bold;
-    flex: 2; /* Allow label to take available space */
-    margin-right: 10px; /* Space between label and input */
 }
 
 .add-book-modal input {
+    flex: 2;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 8px;
     color: rgb(117, 115, 115);
-    flex: 2; /* Allow input to take more space than label */
-    padding: 8px; /* Add padding for better appearance */
-    border-radius: 4px; /* Rounded corners */
-    border: 1px solid #ccc; /* Border styling */
-    box-sizing: border-box; /* Include padding and border in width */
 }
 
 .add-book-modal button {
+    flex: 3;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 8px;
     font-weight: bold;
-    flex: 3; /* Allow input to take more space than label */
-    padding: 8px; /* Add padding for better appearance */
-    border-radius: 4px; /* Rounded corners */
-    border: 1px solid #ccc; /* Border styling */
-    box-sizing: border-box; /* Include padding and border in width */
 }
