@@ -1,35 +1,10 @@
 // Array to store all Book objects
 const library_storage = [
-    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"},
-    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"},
-    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"},
-    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}
+    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}, // Sample Data 
+    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}, // Sample Data 
+    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}, // Sample Data 
+    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}  // Sample Data 
 ];
-
-// Global Components
-const bookGallery = document.querySelector("#book-section");
-const addBookButton = document.querySelector("#show-form-button");
-const addBookDialog = document.querySelector(".add-book-modal");
-const addBookForm = document.querySelector(".add-book-form");
-
-function Book(title, author, pages, read_status) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read_status = read_status;
-}
-
-function addBook() {
-    const formData = new FormData(addBookForm);
-    formData.get()
-    
-      addBookForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        sendData();
-      });
-    // Use info for Book() arguments and create a Book() object
-    // Store new Book object in library_storage
-};
 
 // Initialize Cards from Book[] objects
 function initializeBooks() {
@@ -61,7 +36,28 @@ function initializeBooks() {
 
 initializeBooks();
 
-// "Show the dialog" button opens the dialog modally
+// Global Components
+const bookGallery = document.querySelector("#book-section");
+const addBookButton = document.querySelector("#show-form-button");
+const addBookDialog = document.querySelector(".add-book-modal");
+const addBookForm = document.querySelector(".add-book-form");
+
+function Book(title, author, pages, read_status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read_status = read_status;
+}
+
+function addBook() {
+    // Associate FormData with HTML Form
+    // Fetch each value from FormData and assign it to Book() args
+    // Create new Book object based from the previous steps
+};
+
+// Handle Add Button to show Form modal
 addBookButton.addEventListener("click", () => {
     addBookDialog.showModal();
 });
+
+// Handle Form submission
