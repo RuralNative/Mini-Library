@@ -6,6 +6,12 @@ const library_storage = [
     {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}  // Sample Data 
 ];
 
+// Global Components
+const bookGallery = document.querySelector("#book-section");
+const addBookButton = document.querySelector("#show-form-button");
+const addBookDialog = document.querySelector(".add-book-modal");
+const addBookForm = document.querySelector("#add-book-form");
+
 // Initialize Cards from Book[] objects
 function initializeBooks() {
     bookGallery.innerHTML = '';
@@ -36,12 +42,6 @@ function initializeBooks() {
 
 initializeBooks();
 
-// Global Components
-const bookGallery = document.querySelector("#book-section");
-const addBookButton = document.querySelector("#show-form-button");
-const addBookDialog = document.querySelector(".add-book-modal");
-const addBookForm = document.querySelector(".add-book-form");
-
 function Book(title, author, pages, read_status) {
     this.title = title;
     this.author = author;
@@ -51,7 +51,10 @@ function Book(title, author, pages, read_status) {
 
 function addBook() {
     // Associate FormData with HTML Form
-    // Fetch each value from FormData and assign it to Book() args
+    const formData = new FormData(addBookForm);
+    for (const [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+    }
     // Create new Book object based from the previous steps
 };
 
@@ -61,3 +64,7 @@ addBookButton.addEventListener("click", () => {
 });
 
 // Handle Form submission
+addBookForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    addBook();
+  });
