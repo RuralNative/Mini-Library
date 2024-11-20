@@ -10,6 +10,7 @@ const library_storage = [
 const bookGallery = document.querySelector("#book-section");
 const addBookButton = document.querySelector("#show-form-button");
 const addBookDialog = document.querySelector(".add-book-modal");
+const addBookForm = document.querySelector(".add-book-form");
 
 function Book(title, author, pages, read_status) {
     this.title = title;
@@ -19,7 +20,13 @@ function Book(title, author, pages, read_status) {
 };
 
 function addBook() {
-    // Fetch info from HTML Form
+    const formData = new FormData(addBookForm);
+    formData.get()
+    
+      addBookForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        sendData();
+      });
     // Use info for Book() arguments and create a Book() object
     // Store new Book object in library_storage
 };
