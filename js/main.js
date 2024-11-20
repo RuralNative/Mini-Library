@@ -52,10 +52,17 @@ function Book(title, author, pages, read_status) {
 function addBook() {
     // Associate FormData with HTML Form
     const formData = new FormData(addBookForm);
-    for (const [key, value] of formData.entries()) {
-        console.log(`${key}: ${value}`);
-    }
-    // Create new Book object based from the previous steps
+    // Fetch each value from the Form, and set as args for Book()
+    const newBook = new Book(
+        formData.get('book-title'),
+        formData.get('book-author'),
+        formData.get('book-pages'),
+        formData.get('book-read-status')
+    );
+    // Test out func
+    console.log(newBook);
+    // Store object within array
+    library_storage.push(newBook);
 };
 
 // Handle Add Button to show Form modal
@@ -67,4 +74,6 @@ addBookButton.addEventListener("click", () => {
 addBookForm.addEventListener("submit", (event) => {
     event.preventDefault();
     addBook();
+    addBookDialog.close();
+    initializeBooks()
   });
