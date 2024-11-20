@@ -1,5 +1,3 @@
-const libraryStorage = [];
-
 // Array to store all Book objects
 const library_storage = [
     {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"},
@@ -20,13 +18,6 @@ function Book(title, author, pages, read_status) {
     this.pages = pages;
     this.read_status = read_status;
 }
-
-function addBook() {
-    // Fetch input from HTML form
-    // Use input for Book() arguments (title, author, pages, read)
-    // Create Book object with Book()
-    // Store new Book object within libraryStorage[]
-};
 
 function addBook() {
     const formData = new FormData(addBookForm);
