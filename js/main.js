@@ -21,6 +21,10 @@ function initializeBooks() {
         bookCard.className = 'book-card';
         bookCard.innerHTML = `
             <p>
+                <strong>ID: </strong> 
+                <span>${book.index}</span>
+            </p>
+            <p>
                 <strong>Title: </strong> 
                 <span>${book.title}</span>
             </p>
