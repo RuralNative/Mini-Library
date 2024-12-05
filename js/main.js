@@ -1,9 +1,10 @@
 // Array to store all Book objects
+let dynamicIndex = 5;
 const library_storage = [
-    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}, // Sample Data 
-    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}, // Sample Data 
-    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}, // Sample Data 
-    {title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}  // Sample Data 
+    {index: 1, title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}, // Sample Data 
+    {index: 2, title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}, // Sample Data 
+    {index: 3, title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}, // Sample Data 
+    {index: 4, title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}  // Sample Data 
 ];
 
 // Global Components
@@ -35,6 +36,9 @@ function initializeBooks() {
                 <strong>Has Read?: </strong> 
                 <span>${book.readStatus}</span>
             </p>
+            <p class="delete-button">
+                <button onclick="">Delete</button>
+            </p>
         `;
         bookGallery.appendChild(bookCard);
     });
@@ -42,7 +46,8 @@ function initializeBooks() {
 
 initializeBooks();
 
-function Book(title, author, pages, read_status) {
+function Book(index, title, author, pages, read_status) {
+    this.index = index;
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -54,6 +59,8 @@ function addBook() {
     const formData = new FormData(addBookForm);
     // Fetch each value from the Form, and set as args for Book()
     const newBook = new Book(
+        // Index Setup in this LINE
+        dynamicIndex++,
         formData.get('book-title'),
         formData.get('book-author'),
         formData.get('book-pages'),
