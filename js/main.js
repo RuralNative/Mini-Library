@@ -1,23 +1,26 @@
 // Array to store all Book objects
-let dynamicIndex = 3;
+let dynamicIndex = 3; // Tracks the next available index for new books
 let library_storage = [
-    // Sample Data beloe
+    // Sample Data
     {index: 1, title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"},
     {index: 2, title: "El Filibusterismo", author: "Jose Rizal", pages: 500, read_status: "YES"}
 ];
 
 // Global Components
-const bookGallery = document.querySelector("#book-section");
-const addBookButton = document.querySelector("#show-form-button");
-const addBookDialog = document.querySelector(".add-book-modal");
-const addBookForm = document.querySelector("#add-book-form");
+const bookGallery = document.querySelector("#book-section"); // Container for displaying book cards
+const addBookButton = document.querySelector("#show-form-button"); // Button to show the add book form
+const addBookDialog = document.querySelector(".add-book-modal"); // Modal dialog for adding a new book
+const addBookForm = document.querySelector("#add-book-form"); // Form element for adding a new book
 
-// Initialize Cards from Book[] objects
+/**
+ * Initializes and renders the book cards in the gallery.
+ * Clears existing cards and creates new ones based on the current library_storage array.
+ */
 function initializeBooks() {
-    bookGallery.innerHTML = '';
+    bookGallery.innerHTML = ''; // Clear existing cards
     library_storage.forEach(book => {
-        const bookCard = document.createElement('div');
-        bookCard.className = 'book-card';
+        const bookCard = document.createElement('div'); // Create a new card element
+        bookCard.className = 'book-card'; // Set class for styling
         bookCard.innerHTML = `
             <p>
                 <strong>ID: </strong> 
@@ -37,71 +40,82 @@ function initializeBooks() {
             </p>
             <p>
                 <strong>Has Read?: </strong> 
-                <span>${book.readStatus}</span>
+                <span>${book.read_status}</span>
             </p>
         `;
 
         // Create the delete button
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.className = 'delete-button';
+        const deleteButton = document.createElement('button'); // Create a button element
+        deleteButton.textContent = 'Delete'; // Set button text
+        deleteButton.className = 'delete-button'; // Set class for styling
         
-        // Attach an event listener using an arrow function
+        // Attach an event listener to handle deletion when clicked
         deleteButton.addEventListener('click', () => {
             deleteCard(book.index); // Call deleteCard with the book's index
         });
 
-        // Append the button to the card
-        bookCard.appendChild(deleteButton);
-        
-        // Append the card to the gallery
-        bookGallery.appendChild(bookCard);
+        bookCard.appendChild(deleteButton); // Append the button to the card
+        bookGallery.appendChild(bookCard); // Append the card to the gallery
     });
-};
-
-initializeBooks();
-
-function Book(index, title, author, pages, read_status) {
-    this.index = index;
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read_status = read_status;
 }
 
+// Initial rendering of books when the script runs
+initializeBooks();
+
+/**
+ * Constructor function to create a Book object.
+ * @param {number} index - The unique identifier for the book.
+ * @param {string} title - The title of the book.
+ * @param {string} author - The author of the book.
+ * @param {number} pages - The number of pages in the book.
+ * @param {string} read_status - Indicates if the book has been read (YES/NO).
+ */
+function Book(index, title, author, pages, read_status) {
+    this.index = index; // Set unique index for the book
+    this.title = title; // Set title of the book
+    this.author = author; // Set author of the book
+    this.pages = pages; // Set number of pages in the book
+    this.read_status = read_status; // Set read status of the book
+}
+
+/**
+ * Adds a new book to the library_storage array based on user input from the form.
+ */
 function addBook() {
-    // Associate FormData with HTML Form
-    const formData = new FormData(addBookForm);
-    // Fetch each value from the Form, and set as args for Book()
+    const formData = new FormData(addBookForm); // Create FormData object from form inputs
+
+    // Create a new Book object with values from form inputs and incrementing dynamicIndex
     const newBook = new Book(
-        // Index Setup in this LINE
-        dynamicIndex++,
-        formData.get('book-title'),
-        formData.get('book-author'),
-        formData.get('book-pages'),
-        formData.get('book-read-status')
+        dynamicIndex++, // Increment index for next new book
+        formData.get('book-title'), // Get title from form input
+        formData.get('book-author'), // Get author from form input
+        formData.get('book-pages'), // Get number of pages from form input
+        formData.get('book-read-status') // Get read status from form input
     );
-    // Test out func
-    console.log(newBook);
-    // Store object within array
-    library_storage.push(newBook);
-};
 
-// Handle Add Button to show Form modal
+    console.log(newBook); // Log new book object for debugging purposes
+
+    library_storage.push(newBook); // Add new Book object to library_storage array
+}
+
+// Handle Add Button click to show Form modal dialog
 addBookButton.addEventListener("click", () => {
-    addBookDialog.showModal();
+    addBookDialog.showModal(); // Show modal dialog for adding a new book
 });
 
-// Handle Form submission
+// Handle Form submission to add a new book and update UI accordingly
 addBookForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    addBook();
-    addBookDialog.close();
-    initializeBooks()
+    event.preventDefault(); // Prevent default form submission behavior (page reload)
+    addBook(); // Call function to add a new book based on form data
+    addBookDialog.close(); // Close modal dialog after submission
+    initializeBooks(); // Re-render books to include newly added one(s)
 });
 
-// Handle deletion of a specific book of certain ID
+/**
+ * Deletes a specific book from library_storage by its unique index.
+ * @param {number} id - The unique identifier of the book to be deleted.
+ */
 function deleteCard(id) {
-    library_storage = library_storage.filter((book) => book.index !== id);
-    initializeBooks();
+    library_storage = library_storage.filter((book) => book.index !== id); // Filter out the deleted book by index
+    initializeBooks(); // Re-render books after deletion to reflect changes in UI
 }
