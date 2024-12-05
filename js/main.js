@@ -1,10 +1,9 @@
 // Array to store all Book objects
-let dynamicIndex = 5;
-const library_storage = [
-    {index: 1, title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}, // Sample Data 
-    {index: 2, title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}, // Sample Data 
-    {index: 3, title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}, // Sample Data 
-    {index: 4, title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"}  // Sample Data 
+let dynamicIndex = 3;
+let library_storage = [
+    // Sample Data beloe
+    {index: 1, title: "Noli Me Tangere", author: "Jose Rizal", pages: 480, read_status: "YES"},
+    {index: 2, title: "El Filibusterismo", author: "Jose Rizal", pages: 500, read_status: "YES"}
 ];
 
 // Global Components
@@ -40,10 +39,22 @@ function initializeBooks() {
                 <strong>Has Read?: </strong> 
                 <span>${book.readStatus}</span>
             </p>
-            <p class="delete-button">
-                <button onclick="">Delete</button>
-            </p>
         `;
+
+        // Create the delete button
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'delete-button';
+        
+        // Attach an event listener using an arrow function
+        deleteButton.addEventListener('click', () => {
+            deleteCard(book.index); // Call deleteCard with the book's index
+        });
+
+        // Append the button to the card
+        bookCard.appendChild(deleteButton);
+        
+        // Append the card to the gallery
         bookGallery.appendChild(bookCard);
     });
 };
@@ -87,4 +98,10 @@ addBookForm.addEventListener("submit", (event) => {
     addBook();
     addBookDialog.close();
     initializeBooks()
-  });
+});
+
+// Handle deletion of a specific book of certain ID
+function deleteCard(id) {
+    library_storage = library_storage.filter((book) => book.index !== id);
+    initializeBooks();
+}
